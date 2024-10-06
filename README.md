@@ -23,10 +23,10 @@ monsterDataSet = open("monsterDataSet.txt", "w")
 for line in monsterList:
     if (getLine == True):
         line = line.replace("\n", "")
-        monsterDataSet.write("{id: '" + line.replace(" ", "")
-                             + "', name: '" + line
-                             + ", image: '/images/" + line.replace(" ", "")
-                             + "'},\n")
+        monsterDataSet.write('{id: "' + line.replace(" ", "")
+                             + '", name: "' + line
+                             + ', image: "/images/' + line.replace(" ", "")
+                             + '"},\n')
         getLine = False
     if (line.find("No.") != -1):
         getLine = True
