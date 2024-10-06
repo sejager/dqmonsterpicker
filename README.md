@@ -1,9 +1,61 @@
+# Dragon Quest Monsters: The Dark Prince Favorite Monster Picker
 All of this is courtesy of the people ate DragonFlyCave, I simply edited this to be a Dragon Quest Monsters: The Dark Prince favorite monster picker.
-All the images and information were taken from game8.co, where I used some simple Python Script to extract the names and images.
+All the images and information were taken from game8.co, where I used some simple Python scripts shown below to extract the names and images.
 I did manually pad out the 0s for all from show(1) to show(99) to make it work...
 
 I'm going to leave the instructions on this below in case anyone wants to make their own version.
 
+Script 1
+```
+# Grabs the names from the txt file and formats them to be used
+# with the favorites picker from https://github.com/antialiasis/favorite-picker
+
+import os
+
+getLine = False
+monsterName = ""
+# Open the file to get all the lines, then close it again
+monsterNames = open("monsterNames.txt")
+monsterList = monsterNames.readlines()
+monsterNames.close()
+monsterDataSet = open("monsterDataSet.txt", "w")
+# Write to the new file
+for line in monsterList:
+    if (getLine == True):
+        line = line.replace("\n", "")
+        monsterDataSet.write("{id: '" + line.replace(" ", "")
+                             + "', name: '" + line
+                             + ", image: '/images/" + line.replace(" ", "")
+                             + "'},\n")
+        getLine = False
+    if (line.find("No.") != -1):
+        getLine = True
+monsterDataSet.close()
+```
+Script 2
+```
+import os
+
+getLine = False
+monsterName = ""
+fileNumber = 1
+unsortedFileNames = os.listdir("./Monster Images Unsorted")
+fileNames = sorted(unsortedFileNames)
+monsterNames = open("monsterNames.txt")
+monsterList = monsterNames.readlines()
+for line in monsterList:
+    if (getLine == True):
+        line = line.replace(" ", "")
+        newFileName = "./Monster Images Unsorted/" + line.replace("\n", "")
+        oldFileName = "./Monster Images Unsorted/" + fileNames[fileNumber]
+        os.rename(oldFileName, newFileName)
+        fileNumber += 1
+        getLine = False
+    if (line.find("No.") != -1):
+        getLine = True
+monsterNames.close()
+
+```
 
 # Favorite picker
 
