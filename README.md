@@ -1,3 +1,10 @@
+All of this is courtesy of the people ate DragonFlyCave, I simply edited this to be a Dragon Quest Monsters: The Dark Prince favorite monster picker.
+All the images and information were taken from game8.co, where I used some simple Python Script to extract the names and images.
+I did manually pad out the 0s for all from show(1) to show(99) to make it work...
+
+I'm going to leave the instructions on this below in case anyone wants to make their own version.
+
+
 # Favorite picker
 
 Broadly, this is a tool that allows users to pick certain items from a predefined set over others, repeatedly, until a single favorite is found, and then continue to pick for second place and so on, constructing a list. It is a generalization of the [Favorite Pokémon Picker](https://www.dragonflycave.com/favorite.html). If you haven't seen that tool before, look there and play around with it to get a better idea of what this is about.
