@@ -26,12 +26,13 @@ for line in monsterList:
         monsterDataSet.write('{id: "' + line.replace(" ", "")
                              + '", name: "' + line
                              + ', image: "/images/' + line.replace(" ", "")
-                             + '"},\n')
+                             + '.jpg"},\n')
         getLine = False
     if (line.find("No.") != -1):
         getLine = True
 monsterDataSet.close()
 ```
+
 Script 2
 ```
 import os
@@ -39,22 +40,21 @@ import os
 getLine = False
 monsterName = ""
 fileNumber = 1
-unsortedFileNames = os.listdir("./Monster Images Unsorted")
+unsortedFileNames = os.listdir("./Monster Images Unnamed")
 fileNames = sorted(unsortedFileNames)
 monsterNames = open("monsterNames.txt")
 monsterList = monsterNames.readlines()
 for line in monsterList:
     if (getLine == True):
         line = line.replace(" ", "")
-        newFileName = "./Monster Images Unsorted/" + line.replace("\n", "")
-        oldFileName = "./Monster Images Unsorted/" + fileNames[fileNumber]
+        newFileName = "./Monster Images Named/" + line.replace("\n", "") + ".jpg"
+        oldFileName = "./Monster Images Unnamed/" + fileNames[fileNumber]
         os.rename(oldFileName, newFileName)
         fileNumber += 1
         getLine = False
     if (line.find("No.") != -1):
         getLine = True
 monsterNames.close()
-
 ```
 
 # Favorite picker
