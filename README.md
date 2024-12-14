@@ -1,5 +1,7 @@
 # Dragon Quest Monsters: The Dark Prince Favorite Monster Picker
-Try it out at https://sejager.github.io/dqmonsterpicker/picker.html! 
+
+Try it out at https://sejager.github.io/dqmonsterpicker/picker.html!
+
 All of this is courtesy of the people at DragonFlyCave, I simply edited this to be a Dragon Quest Monsters: The Dark Prince favorite monster picker.
 All the images and information were taken from game8.co, where I used some simple Python scripts shown below to extract the names and images.
 I did manually pad out the 0s for all from show(1) to show(99) to make it work...
